@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark light;
+  }
+  
+  body {
+    font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
+    @apply bg-stone-100 dark:bg-[#121615] text-stone-900 dark:text-stone-200 transition-colors duration-200;
+    overflow-x: hidden;
+  }
+}
+
+/* Custom Glassmorphism & Micro-styles */
+.glass-panel {
+  @apply bg-white/90 dark:bg-[#1A201E]/60 border border-stone-200/80 dark:border-white/5 shadow-sm dark:shadow-2xl backdrop-blur-md transition-colors duration-200;
+}
+
+.glass-panel-hover {
+  @apply transition-all duration-300 ease-out;
+}
+.glass-panel-hover:hover {
+  @apply bg-stone-100 dark:bg-[#1A201E]/80 border-emerald-300 dark:border-emerald-800/40 shadow-md dark:shadow-none -translate-y-[2px];
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-zinc-100 dark:bg-[#121615] transition-colors duration-200;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-zinc-300 dark:bg-[#1A201E] transition-colors duration-200;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-zinc-400 dark:bg-stone-600;
+}
+
+/* Liquid fill animation for hydration */
+@keyframes wave {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(-25%); }
+  100% { transform: translateX(0); }
+}
+
+.animate-wave {
+  animation: wave 6s ease-in-out infinite;
+}
